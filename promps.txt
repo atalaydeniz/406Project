@@ -1,0 +1,1 @@
+Prompt 1: The given code consists of performance related bugs. Can you detect them and classify the bug? The bug classes are as follows: "Missing parallelism", "Algorithm or Data Structure inefficiency", "Memory management", "Inefficient parallelization", "Data Locality"
