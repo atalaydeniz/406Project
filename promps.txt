@@ -1,1 +1,5 @@
-Prompt 1: The given code consists of performance related bugs. Can you detect them and classify the bug? The bug classes are as follows: "Missing parallelism", "Algorithm or Data Structure inefficiency", "Memory management", "Inefficient parallelization", "Data Locality"
+Prompt 1: The given code consists of performance related bugs.
+ Can you detect them and classify the bug? The bug classes are as follows: "Missing parallelism", "Algorithm or Data Structure inefficiency", "Memory management", "Inefficient parallelization", "Data Locality"
+ The code is given as: "..."
+
+Prompt 2: You said the code contains ".." type of bug. This type of bug have the subclasses: "...". Which subclass does the bug belong to?

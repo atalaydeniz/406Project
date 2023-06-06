@@ -6,30 +6,33 @@
 #include <algorithm>
 #include <random>
 
-int parallelOrderFind(const std::vector<std::pair<int, int>>& array, int k) {
+int parallelOrderFind(const std::vector<int>& array, int k) {
     int size = array.size();
     int order = -1;
-    int local_min = size;
 
-    #pragma omp parallel for reduction(min:local_min)
+    #pragma omp parallel for shared(order)
     for (int i = 0; i < size; ++i) {
-        if (array[i].first == k) {
-            local_min = std::min(local_min, array[i].second);
+        if (array[i] == k) {
+            #pragma omp critical
+            {
+                if (order == -1 || i < order) {
+                    order = i;
+                }
+            }
         }
-    }
-
-    #pragma omp critical
-    {
-        order = std::min(order, local_min);
     }
 
     return order;
 }
 
-int main() {
-    std::vector<std::pair<int, int>> array(65536);
-    for (int i = 0; i < 65536; i++) {
-        array[i] = std::make_pair(i, i);
+int main(int argc, char* argv[]) {
+
+    int size = atoi(argv[1]);
+    int search = atoi(argv[2]);
+       
+    std::vector<int> array(size);
+    for (int i = 0; i < size; i++) {
+        array[i] = i;
     }
     int key = 0;
     std::random_device rd;
@@ -37,9 +40,8 @@ int main() {
     std::shuffle(array.begin(), array.end(), generator);
 
     double s = omp_get_wtime();
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < search; i++) {
         int order = parallelOrderFind(array, key);
-        __builtin_prefetch(&array[order], 0, 3);
     }  
     double e = omp_get_wtime();
     std::cout << e - s << std::endl;

@@ -1,3 +1,10 @@
+/*
+
+Classified as "Inefficient Parallelization" --> "Inefficient Thread Mapping"
+              "Micro-Architectural" --> "Data Locality"
+
+*/
+
 #include <iostream>
 #include <vector>
 

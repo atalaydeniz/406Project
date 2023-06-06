@@ -40,3 +40,6 @@ long long main() {
 
     return 0;
 }
+
+
+// Running time: 0.00125

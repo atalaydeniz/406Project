@@ -26,8 +26,8 @@ int parallelOrderFind(const std::vector<int>& array, int k) {
 }
 
 int main() {
-    std::vector<int> array(65536);
-    for (int i = 0; i < 65536; i++) {
+    std::vector<int> array(16777216);
+    for (int i = 0; i < 16777216; i++) {
         array[i] = i;
     }
     int key = 0;

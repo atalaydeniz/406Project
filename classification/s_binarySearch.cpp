@@ -1,3 +1,9 @@
+/*
+
+Classified as "Not Found"
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <omp.h>
@@ -22,15 +28,15 @@ int binarySearch(const std::vector<int>& array, int key) {
 }
 
 int main() {
-    std::vector<int> array(16777216);
-    for (int i = 0; i < 16777216; i++) {
+    std::vector<int> array(65536);
+    for (int i = 0; i < 65536; i++) {
         array[i] = i;
     }
 
     double s = omp_get_wtime();
     for (int i = 0; i < 1000; i++) {
         srand((unsigned) time(NULL));
-        int random = rand() % 16777216;
+        int random = rand() % 65536;
         int index = binarySearch(array, random);
     }  
     double e = omp_get_wtime();
