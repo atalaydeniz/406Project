@@ -1,3 +1,10 @@
+/*
+
+Compilation: g++ -fopenmp -o code fibanocci.cpp
+Run: ./code <number>
+
+*/
+
 #include <iostream>
 #include <omp.h>
 

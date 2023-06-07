@@ -1,3 +1,11 @@
+/*
+
+Compilation: g++ -fopenmp -o code generatePrimes.cpp
+Run: ./code <upperlimit>
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <omp.h>
@@ -38,9 +46,9 @@ std::vector<int> generatePrimes(int start, int end) {
     return primes;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     int start = 1;
-    int end = 1000000;
+    int end = atoi(argv[1]);
 
     double s = omp_get_wtime();
     std::vector<int> primes = generatePrimes(start, end);

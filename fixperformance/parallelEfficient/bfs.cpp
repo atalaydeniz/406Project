@@ -1,3 +1,10 @@
+/*
+
+Compilation: g++ -fopenmp -o code bfs.cpp
+Run: ./code
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <queue>
