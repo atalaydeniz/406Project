@@ -1,3 +1,10 @@
+/*
+
+Compilation: g++ -fopenmp -o code matrixAddition.cpp
+Run: ./code <matrixSize>
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <omp.h>
@@ -15,18 +22,21 @@ void matrixAddition(std::vector<std::vector<double>>& matrix1, const std::vector
     }
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+
+    int size = atoi(argv[1]);
+
     double lower_bound = 0;
     double upper_bound = 100;
     std::uniform_real_distribution<double> unif(lower_bound, upper_bound);
     std::default_random_engine re;
 
-    std::vector<std::vector<double>> matrix1(16384, std::vector<double>(16384, 0));
-    std::vector<std::vector<double>> matrix2(16384, std::vector<double>(16384, 0));
+    std::vector<std::vector<double>> matrix1(size, std::vector<double>(size, 0));
+    std::vector<std::vector<double>> matrix2(size, std::vector<double>(size, 0));
 
     #pragma omp parallel for collapse(2)
-    for (int i = 0; i < 16384; i++) {
-        for (int j = 0; j < 16384; j++) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             double r = unif(re);
             matrix1[i][j] = r;
             r = unif(re);

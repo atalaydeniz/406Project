@@ -1,9 +1,16 @@
+/*
+
+Compilation: g++ -fopenmp -o code numericalIntegration.cpp
+Run: ./code <stepSize>
+
+*/
+
 #include <iostream>
 #include <cmath>
 #include <omp.h>
 
 double f(double x) {
-    return cos(x) * x; // The function to integrate
+    return cos(x) * x; 
 }
 
 double integrateEfficient(double a, double b, long long numSteps) {
@@ -30,10 +37,13 @@ double integrateEfficient(double a, double b, long long numSteps) {
     return sum;
 }
 
-int main() {
-    double a = 0.0; // Lower limit of integration
-    double b = 10.0; // Upper limit of integration
-    long long numSteps = 10000000; // Number of steps for integration
+int main(int argc, char* argv[]) {
+
+    int size = atoi(argv[1]);
+
+    double a = 0.0; 
+    double b = 10.0; 
+    long long numSteps = size; 
 
     double s = omp_get_wtime();
     double result = integrateEfficient(a, b, numSteps);
