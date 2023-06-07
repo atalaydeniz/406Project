@@ -1,3 +1,10 @@
+/*
+
+Compilation: g++ -fopenmp -o code linearSearch.cpp
+Run: ./code <arraySize>
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <omp.h>
@@ -25,9 +32,12 @@ int linearSearch(const std::vector<int>& array, int key) {
     return index;
 }
 
-int main() {
-    std::vector<int> array(65536);
-    for (int i = 0; i < 65536; i++) {
+int main(int argc, char* argv[]) {
+
+    int size = atoi(argv[1]);
+
+    std::vector<int> array(size);
+    for (int i = 0; i < size; i++) {
         array[i] = i;
     }
 

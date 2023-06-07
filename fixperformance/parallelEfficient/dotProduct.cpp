@@ -1,3 +1,11 @@
+/*
+
+Compilation: g++ -fopenmp -o code dotProduct.cpp
+Run: ./code <vectorSize>
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <omp.h>
@@ -23,7 +31,10 @@ double dotProduct(const std::vector<double>& vec1, const std::vector<double>& ve
     return result;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+
+    int size = atoi(argv[1]);
+
     double lower_bound = 0;
     double upper_bound = 100;
     std::uniform_real_distribution<double> unif(lower_bound,
@@ -33,7 +44,7 @@ int main() {
     std::vector<double> vec1;
     std::vector<double> vec2;
 
-    for (int i = 0; i < 65536; i++) {
+    for (int i = 0; i < size; i++) {
         double r = unif(re);
         vec1.push_back(r);
         r = unif(re);
