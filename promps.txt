@@ -1,7 +1,7 @@
 #### Part One ####
 
 Prompt 1: The given code consists of performance related bugs.
- Can you detect them and classify the bug? The bug classes are as follows: "Missing parallelism", "Algorithm or Data Structure inefficiency", "Memory management", "Inefficient parallelization", "Data Locality"
+ Can you detect them and classify the bug? The bug classes are as follows: "Missing parallelism", "Algorithm or Data Structure inefficiency", "Memory management", "Inefficient parallelization", "Micro-Architectural"
  The code is given as: "..."
 
 Prompt 2: You classified the program as "Missing Parallelism". This bug class have several subclasses: "Vector parallelism", "GPU parallelism", "Instruction level parallelism", "Task parallelism". Which of the 
@@ -12,5 +12,7 @@ Prompt 2: You classified the program as "Missing Parallelism". This bug class ha
 #### Part Two ####
 
 Prompt 1: The given code is consists of performance bugs. Can you fix it? You can parallelize the code if possible, you can use prefetching (using builtin_prefetch()), you can consider data locality. 
+
+Prompt 2: Can you create a perfect parallel C++ program doing the task "..."? The inefficient version of the code is given as: "...".
 
 ##################
