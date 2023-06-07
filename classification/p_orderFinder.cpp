@@ -1,3 +1,9 @@
+/*
+
+Classified as "Inefficient Parallelization" --> "Underparallelization"
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <omp.h>

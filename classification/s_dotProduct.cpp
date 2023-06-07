@@ -1,3 +1,9 @@
+/*
+
+Classified as "Missing Parallelism" --> "Vector Parallelism"
+              
+*/
+
 #include <iostream>
 #include <vector>
 #include <omp.h>

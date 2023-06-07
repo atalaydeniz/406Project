@@ -1,10 +1,9 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
 #include <omp.h>
 
 double f(double x) {
-    return cos(x)*x; // The function to integrate
+    return cos(x) * x; // The function to integrate
 }
 
 double integrateEfficient(double a, double b, long long numSteps) {

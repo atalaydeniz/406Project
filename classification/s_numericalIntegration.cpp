@@ -1,6 +1,6 @@
 /*
 
-Classified as "Missing Parallelization" --> "Task Parallelism"          
+Classified as "Missing Parallelism" --> "Task Parallelism"          
 
 */
 

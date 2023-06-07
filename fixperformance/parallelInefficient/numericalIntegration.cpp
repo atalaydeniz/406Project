@@ -1,21 +1,23 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
 #include <omp.h>
 
 double f(double x) {
-    return cos(x)*x; // The function to integrate
+    return cos(x) * x; // The function to integrate
 }
 
 double integrateInefficient(double a, double b, long long numSteps) {
     double stepSize = (b - a) / numSteps;
     double sum = 0.0;
 
-    #pragma omp parallel for reduction(+:sum)
+    #pragma omp parallel for
     for (long long i = 0; i < numSteps; i++) {
         double x = a + i * stepSize;
         double y = f(x);
-        sum += y * stepSize;
+        #pragma omp critical
+        {
+            sum += y * stepSize;
+        }
     }
 
     return sum;

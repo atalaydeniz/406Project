@@ -1,5 +1,16 @@
+#### Part One ####
+
 Prompt 1: The given code consists of performance related bugs.
  Can you detect them and classify the bug? The bug classes are as follows: "Missing parallelism", "Algorithm or Data Structure inefficiency", "Memory management", "Inefficient parallelization", "Data Locality"
  The code is given as: "..."
 
-Prompt 2: You said the code contains ".." type of bug. This type of bug have the subclasses: "...". Which subclass does the bug belong to?
+Prompt 2: You classified the program as "Missing Parallelism". This bug class have several subclasses: "Vector parallelism", "GPU parallelism", "Instruction level parallelism", "Task parallelism". Which of the 
+ subclasses does the bug belong to?
+
+##################
+
+#### Part Two ####
+
+Prompt 1: The given code is consists of performance bugs. Can you fix it? You can parallelize the code if possible, you can use prefetching (using builtin_prefetch()), you can consider data locality. 
+
+##################
