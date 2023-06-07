@@ -1,3 +1,10 @@
+/*
+
+Compilation: g++ -fopenmp -o code prefixSum.cpp
+Run: ./code <arraySize>
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <omp.h>
@@ -17,9 +24,12 @@ void parallelPrefixSum(std::vector<int>& arr) {
     }
 }
 
-int main() {
-    std::vector<int> array(16384);
-    for (int i = 0; i < 16384; i++) {
+int main(int argc, char* argv[]) {
+
+    int size = atoi(argv[1]);
+
+    std::vector<int> array(size);
+    for (int i = 0; i < size; i++) {
         array[i] = i;
     }
 

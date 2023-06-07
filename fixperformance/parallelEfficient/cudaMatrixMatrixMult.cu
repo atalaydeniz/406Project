@@ -1,3 +1,10 @@
+/*
+
+Compilation: nvcc cudaMatrixMatrixMult.cu -o code -Xcompiler -fopenmp  
+Run: ./code <matrixSize>
+
+*/
+
 #include <iostream>
 #include <cuda_runtime.h>
 #include <random>
@@ -49,10 +56,13 @@ __global__ void matrixMultiplication(const float* matrix1, const float* matrix2,
     }
 }
 
-int main() {
-    int rows1 = 16384;
-    int cols1 = 16384;
-    int cols2 = 16384;
+int main(int argc, char* argv[]) {
+
+    int size = atoi(argv[1]);
+
+    int rows1 = size;
+    int cols1 = size;
+    int cols2 = size;
 
     // Matrix sizes
     int matrix1Size = rows1 * cols1 * sizeof(float);
@@ -69,7 +79,7 @@ int main() {
     std::uniform_real_distribution<double> unif(lower_bound, upper_bound);
     std::default_random_engine re;
 
-    for (int i = 0; i < 16384*16384; i++) {
+    for (int i = 0; i < size*size; i++) {
             double r = unif(re);
             h_matrix1[i] = r;
             r = unif(re);
